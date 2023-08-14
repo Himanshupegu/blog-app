@@ -31,7 +31,7 @@ const LoginPage = () => {
   }
   return (
     <form
-      className='login'
+      className='loginForm'
       onSubmit={login}>
       <h1>Login</h1>
       <input

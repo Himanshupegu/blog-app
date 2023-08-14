@@ -1,9 +1,9 @@
-h1 {
+.registerForm h1 {
   text-align: center;
   margin-bottom: 20px;
 }
 
-form {
+.registerForm {
   max-width: 400px;
   margin: 0 auto;
 }

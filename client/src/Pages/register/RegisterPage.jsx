@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './register.css';
 
 const RegisterPage = () => {
   const [username, setUsername] = useState('');
@@ -23,7 +24,7 @@ const RegisterPage = () => {
 
   return (
     <form
-      className='register'
+      className='registerForm'
       onSubmit={register}>
       <h1>Register</h1>
       <input

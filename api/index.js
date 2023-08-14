@@ -1,16 +1,19 @@
 require('dotenv').config();
 const express = require('express');
+const app = express();
 const cors = require('cors');
 const mongoose = require('mongoose');
 const User = require('./models/User');
+const Post = require('./models/Post');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
+const multer = require('multer');
+const uploadMiddleware = multer({ dest: 'upload/' });
+const fs = require('fs');
 
 const salt = bcrypt.genSaltSync(10);
 const secret = 'ddfjiowe2993213k9kdfjd4';
-
-const app = express();
 
 app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 app.use(express.json());
@@ -57,32 +60,49 @@ app.post('/login', async (req, res) => {
   }
 });
 
-// app.get('/profile', (req, res) => {
-//   const { token } = req.cookies;
-//   jwt.verify(token, secret, {}, (err, info) => {
-//     if (err) throw err;
-//     res.json(info);
-//   });
-// });
-
 app.get('/profile', (req, res) => {
   const { token } = req.cookies;
 
   if (!token) {
-    return res.status(401).json({ message: 'Token missing or invalid' });
+    return res
+      .status(401)
+      .json({ message: 'Token missing or invalid' });
   }
 
   jwt.verify(token, secret, {}, (err, info) => {
     if (err) {
-      return res.status(403).json({ message: 'Token verification failed' });
+      return res
+        .status(403)
+        .json({ message: 'Token verification failed' });
     }
     res.json(info);
   });
 });
 
-
 app.post('/logout', (req, res) => {
   res.cookie('token', '').json('ok');
 });
+
+app.post(
+  '/post',
+  uploadMiddleware.single('file'),
+  async (req, res) => {
+    const { originalname, path } = req.file;
+    const parts = originalname.split('.');
+    const ext = parts[parts.length - 1];
+    const newPath = path + '.' + ext;
+    fs.renameSync(path, newPath);
+
+    const { title, summary, content } = req.body;
+    const postDoc = await Post.create({
+      title,
+      summary,
+      content,
+      cover: newPath,
+    });
+
+    res.json(postDoc);
+  }
+);
 
 app.listen(4000);
