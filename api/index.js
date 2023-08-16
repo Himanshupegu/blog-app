@@ -18,6 +18,8 @@ const secret = 'ddfjiowe2993213k9kdfjd4';
 app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 app.use(express.json());
 app.use(cookieParser());
+// app.use(express.static('upload'));
+app.use('/upload', express.static(__dirname + '/upload'))
 
 mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
@@ -93,16 +95,39 @@ app.post(
     const newPath = path + '.' + ext;
     fs.renameSync(path, newPath);
 
-    const { title, summary, content } = req.body;
-    const postDoc = await Post.create({
-      title,
-      summary,
-      content,
-      cover: newPath,
-    });
+    const { token } = req.cookies;
+    jwt.verify(token, secret, {}, async (err, info) => {
+      if (err) {
+        return res
+          .status(403)
+          .json({ message: 'Token verification failed' });
+      }
+      const { title, summary, content } = req.body;
+      const postDoc = await Post.create({
+        title,
+        summary,
+        content,
+        cover: newPath,
+        author: info.id,
+      });
 
-    res.json(postDoc);
+      res.json(postDoc);
+    });
   }
 );
+
+app.get('/post', async (req, res) => {
+  try {
+    const posts = await Post.find()
+      .populate('author', ['username'])
+      .sort({ createdAt: -1 })
+      .limit(20);
+
+    res.json(posts);
+  } catch (error) {
+    res.status(500).json({ error: 'An error occurred while fetching posts.' });
+  }
+});
+
 
 app.listen(4000);

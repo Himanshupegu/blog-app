@@ -1,26 +1,36 @@
 import React from 'react';
+import { format } from 'date-fns';
 import './post.css';
 
-const Post = () => {
+const Post = ({
+  content,
+  cover,
+  createdAt,
+  summary,
+  title,
+  author,
+}) => {
   return (
     <div className='post'>
       <div className='image'>
         <img
-          src='https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1560955053i/44421460.jpg'
+          src={'http://localhost:4000/' + cover}
           alt=''
         />
       </div>
       <div className='content'>
-        <h2>Before the Coffee Gets Cold</h2>
+        <h2>{title}</h2>
         <p className='info'>
           <a
             href='#author'
             className='author'>
-            Toshikazu Kawaguchi
+            {author.username}
           </a>
-          <time>22-07-2023 12:18 AM</time>
+          <time>
+            {format(new Date(createdAt), 'MMM d, yyyy HH:mm')}
+          </time>
         </p>
-        <p className='summary'>In a small back alley in Tokyo, there is a café which has been serving carefully brewed coffee for more than one hundred years. But this coffee shop offers its customers a unique experience: the chance to travel back in time.</p>
+        <p className='summary'>{summary}.</p>
       </div>
     </div>
   );

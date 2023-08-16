@@ -37,6 +37,7 @@ const CreatePostPage = () => {
     const response = await fetch('http://localhost:4000/post', {
       method: 'POST',
       body: data,
+      credentials: 'include',
     });
     // console.log(await response.json());
     if (response.ok) {
