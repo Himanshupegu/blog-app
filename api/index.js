@@ -125,9 +125,16 @@ app.get('/post', async (req, res) => {
 
     res.json(posts);
   } catch (error) {
-    res.status(500).json({ error: 'An error occurred while fetching posts.' });
+    res
+      .status(500)
+      .json({ error: 'A n error occurred while fetching posts.' });
   }
 });
 
+app.get('/post/:id', async (req, res) => {
+  const { id } = req.params;
+  const postDoc = await Post.findById(id).populate('author', ['username']);
+  res.json(postDoc);
+});
 
 app.listen(4000);

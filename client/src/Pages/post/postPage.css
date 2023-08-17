@@ -1,0 +1,39 @@
+.image {
+  display: flex;
+  max-height: 200px;
+  overflow: hidden;
+
+}
+
+h1 {
+  text-align: center;
+  margin: 10px 0 5px
+}
+
+img {
+  object-fit: cover;
+  object-position: center center;
+}
+
+.post-page a {
+  color: #333;
+  text-decoration: underline;
+}
+
+time{
+  text-align: center;
+  display: block;
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+.author{
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.content p{
+line-height: 1.6rem;
+
+}

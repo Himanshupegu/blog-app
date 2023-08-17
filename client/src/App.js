@@ -8,6 +8,7 @@ import {
   CreatePostPage,
 } from './Pages';
 import { UserContextProvider } from './userContext';
+import PostPage from './Pages/post/PostPage';
 
 function App() {
   return (
@@ -31,6 +32,10 @@ function App() {
           <Route
             path='/create'
             element={<CreatePostPage />}
+          />
+          <Route
+            path='/post/:id'
+            element={<PostPage />}
           />
         </Route>
       </Routes>

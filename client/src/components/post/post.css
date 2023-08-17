@@ -10,11 +10,22 @@ h2 {
 
 .post {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
+  grid-template-columns: 1fr;
   gap: 30px;
   /* margin-bottom: 100px; */
   max-width: 800px;
   margin: 0 auto;
+}
+
+@media screen and (min-width: 700px) {
+  .post{
+      grid-template-columns: .9fr 1.1fr;
+  }
+}
+
+.post a{
+  text-decoration: none;  
+  color: inherit;
 }
 
 .image {
