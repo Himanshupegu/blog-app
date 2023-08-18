@@ -9,6 +9,7 @@ import {
 } from './Pages';
 import { UserContextProvider } from './userContext';
 import PostPage from './Pages/post/PostPage';
+import EditPost from './Pages/edit post/EditPost';
 
 function App() {
   return (
@@ -37,6 +38,11 @@ function App() {
             path='/post/:id'
             element={<PostPage />}
           />
+          <Route
+            path='/edit/:id'
+            element={<EditPost />}
+          />
+
         </Route>
       </Routes>
     </UserContextProvider>

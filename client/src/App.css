@@ -5,6 +5,14 @@
   scroll-behavior: smooth;
 }
 
+a{
+  cursor: pointer;
+}
+
 body {
   color: #222;
+}
+
+button{
+  cursor: pointer;
 }

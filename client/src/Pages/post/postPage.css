@@ -20,20 +20,40 @@ img {
   text-decoration: underline;
 }
 
-time{
+time {
   text-align: center;
   display: block;
   font-size: 0.8rem;
   color: #aaa;
 }
 
-.author{
+.author {
   text-align: center;
   margin-bottom: 20px;
   font-weight: bold;
 }
 
-.content p{
-line-height: 1.6rem;
+.content p {
+  line-height: 1.6rem;
 
+}
+
+.edit-row {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+a.edit-btn {
+  background-color: #333;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+a svg {
+  height: 24px;
 }
