@@ -8,10 +8,18 @@ const HomePage = () => {
       response.json().then((posts) => {
         setPosts(posts);
       });
-    });
+    }, []);
   });
   return (
-    <>{posts.length > 0 && posts.map((post) => <Post {...post} />)}</>
+    <>
+      {posts.length > 0 &&
+        posts.map((post) => (
+          <Post
+            key={post._id}
+            {...post}
+          />
+        ))}
+    </>
   );
 };
 

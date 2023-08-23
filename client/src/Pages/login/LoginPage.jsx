@@ -30,24 +30,26 @@ const LoginPage = () => {
     return <Navigate to={'/'} />;
   }
   return (
-    <form
-      className='loginForm'
-      onSubmit={login}>
-      <h1>Login</h1>
-      <input
-        type='text'
-        placeholder='username'
-        value={username}
-        onChange={(ev) => setUsername(ev.target.value)}
-      />
-      <input
-        type='password'
-        placeholder='password'
-        value={password}
-        onChange={(ev) => setPassword(ev.target.value)}
-      />
-      <button>Login</button>
-    </form>
+    <div className='loginPage'>
+      <form
+        className='loginForm'
+        onSubmit={login}>
+        <h1>Login</h1>
+        <input
+          type='text'
+          placeholder='username'
+          value={username}
+          onChange={(ev) => setUsername(ev.target.value)}
+        />
+        <input
+          type='password'
+          placeholder='password'
+          value={password}
+          onChange={(ev) => setPassword(ev.target.value)}
+        />
+        <button>Login</button>
+      </form>
+    </div>
   );
 };
 
