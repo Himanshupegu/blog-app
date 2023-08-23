@@ -1,4 +1,9 @@
-import { Route, Routes } from 'react-router-dom';
+import {
+  Route,
+  Routes,
+  RouterProvider,
+  createBrowserRouter,
+} from 'react-router-dom';
 import './App.css';
 import Layout from './components/layout/Layout';
 import {
@@ -10,6 +15,27 @@ import {
 import { UserContextProvider } from './userContext';
 import PostPage from './Pages/post/PostPage';
 import EditPost from './Pages/edit post/EditPost';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Layout />,
+    children: [
+      {
+        path: '/',
+        element: <HomePage />,
+      },
+      {
+        path: '/post/:id',
+        element: <PostPage />,
+      },
+      {
+        path: '/create',
+        element: <CreatePostPage />,
+      },
+    ],
+  },
+]);
 
 function App() {
   return (
@@ -42,7 +68,6 @@ function App() {
             path='/edit/:id'
             element={<EditPost />}
           />
-
         </Route>
       </Routes>
     </UserContextProvider>
