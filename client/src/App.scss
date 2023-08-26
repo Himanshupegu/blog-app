@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;1,100&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&family=Poppins:ital,wght@0,100;0,200;1,100&display=swap');
+
+:root{
+
+    /*========== Colors ==========*/
+  /* Change favorite color to match images */
+  ---hue-color: 190;
+
+  --first-color: hsl(var(--hue-color), 64%, 22%);
+  --first-color-second: hsl(var(--hue-color), 64%, 22%);
+  --first-color-alt: hsl(var(--hue-color), 64%, 15%);
+  --title-color: hsl(var(--hue-color), 64%, 18%);
+  --text-color: hsl(var(--hue-color), 24%, 35%);
+  --text-color-light: hsl(var(--hue-color), 8%, 60%);
+  --input-color: hsl(var(--hue-color), 24%, 97%);
+  --body-color: hsl(var(--hue-color), 100%, 99%);
+  --white-color: #FFF;
+  --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
+  --scroll-thumb-color: hsl(var(--hue-color), 12%, 75%);
+
+  --first-color-btn: hsl(260, 100%, 66%); 
+  --second-color-btn: hsl(328, 100%, 66%); 
+  --gradient-color: linear-gradient(75deg,
+                    var(--second-color-btn) 12%,
+                    var(--first-color-btn) 90%);
+  --first-color-light: hsl(260, 88%, 92%);
+  --first-color-dark: hsl(260, 80%, 16%);
+  --title-color: hsl(260, 80%, 18%);
+  --text-color: hsl(260, 24%, 32%);
+  --text-color-light: hsl(0, 0%, 76%);
+  --white-color: hsl(0, 0%, 100%); 
+  --body-color: hsl(210, 46%, 95%);
+  --container-color: hsl(0, 0%, 100%); 
+
+    /* Font and typography*/
+    --body-font: 'Open Sans', sans-serif;
+    --title-font: 'Raleway', sans-serif;
+    --biggest-font-size: 2.5rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+  
+    --font-medium: 500;
+    --font-semi-bold: 600;
+  
+  
+}
+
+// login & register
+.app{
+  display: flex;
+  justify-content: center;
+  .container{
+    width: 1024px;
+
+    .link {
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
+
+  }
+}

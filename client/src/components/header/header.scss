@@ -1,0 +1,67 @@
+$lightGreen: #b9e7e7;
+
+.navbar {
+
+  .container {
+    position: sticky;
+    top: 0;
+    padding-bottom: -10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding-bottom: -30px;
+    .logo {
+      img {
+        margin-top: 30px;
+        width: 150px;
+        align-items: center;
+      }
+    }
+    .links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 25px;
+  
+      
+      h6 {
+        font-size: 16px;
+        font-weight: 600;
+        font-family: var(--body-font);
+      }
+
+      span {
+        cursor: pointer;
+      }
+
+      .write {
+        background: black;
+        width: 50px;
+        height: 50px;
+        font-weight: 600;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid white;
+        margin-right: 15px;
+        .saltIt{
+          color: white;
+          text-decoration: none;
+        }
+
+        img{
+          padding-top: 55px;
+          width: 70px;
+        }
+        
+        &:hover {
+          color: var(--gradient-color);
+          background: var(--gradient-color);
+          // border: 1px solid teal;
+        }
+      }
+    }
+  }
+}

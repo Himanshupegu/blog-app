@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import './register.css';
-
+import { Link } from "react-router-dom";
 const RegisterPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -23,24 +22,36 @@ const RegisterPage = () => {
   }
 
   return (
-    <form
-      className='registerForm'
-      onSubmit={register}>
-      <h1>Register</h1>
-      <input
-        type='text'
-        placeholder='username'
-        value={username}
-        onChange={(ev) => setUsername(ev.target.value)}
-      />
-      <input
-        type='password'
-        placeholder='password'
-        value={password}
-        onChange={(ev) => setPassword(ev.target.value)}
-      />
-      <button>Register</button>
-    </form>
+    <div className='loginForm'>
+      <form onSubmit={register}>
+        <h1>Register</h1>
+        <input
+          required
+          type='text'
+          placeholder='username'
+          value={username}
+          onChange={(ev) => setUsername(ev.target.value)}
+        />
+        <input
+          required
+          type='email'
+          placeholder='email'
+          name='email'
+          // value={email}
+          onChange={(ev) => setUsername(ev.target.value)}
+        />
+        <input
+          type='password'
+          placeholder='password'
+          value={password}
+          onChange={(ev) => setPassword(ev.target.value)}
+        />
+        <button>Register</button>
+        <span>
+          Do you have an account? <Link to='/login'>Login</Link>
+        </span>
+      </form>
+    </div>
   );
 };
 

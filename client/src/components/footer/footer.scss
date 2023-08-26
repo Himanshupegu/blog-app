@@ -1,0 +1,16 @@
+
+
+footer{
+  margin-top: 100px;
+  padding: 15px 20px;
+  background: var(--text-color-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+
+  .logo{
+    margin-bottom: 0px;
+    width: 100px;
+  }
+}

@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import './App.css';
+import './App.scss';
 import Layout from './components/layout/Layout';
 import {
   HomePage,
@@ -22,14 +22,7 @@ function App() {
             index
             element={<HomePage />}
           />
-          <Route
-            path={'/login'}
-            element={<LoginPage />}
-          />
-          <Route
-            path='/register'
-            element={<RegisterPage />}
-          />
+
           <Route
             path='/create'
             element={<CreatePostPage />}
@@ -41,6 +34,18 @@ function App() {
           <Route
             path='/edit/:id'
             element={<EditPost />}
+          />
+        </Route>
+        <Route
+          path='/'
+          element={<Layout />}>
+          <Route
+            path={'/login'}
+            element={<LoginPage />}
+          />
+          <Route
+            path='/regisster'
+            element={<RegisterPage />}
           />
         </Route>
       </Routes>
