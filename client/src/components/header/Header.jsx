@@ -120,7 +120,7 @@ const Header = () => {
               <a
                 className='link'
                 onClick={logout}>
-                Logout
+                {username} Logout
               </a>
             </>
           )}

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Post from '../../components/post/Post';
+import './homePage.scss'
 
 const HomePage = () => {
   const [posts, setPosts] = useState([]);
@@ -11,7 +12,7 @@ const HomePage = () => {
     }, []);
   });
   return (
-    <>
+    <div className='home-page'>
       {posts.length > 0 &&
         posts.map((post) => (
           <Post
@@ -19,7 +20,7 @@ const HomePage = () => {
             {...post}
           />
         ))}
-    </>
+    </div>
   );
 };
 
